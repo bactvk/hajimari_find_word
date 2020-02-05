@@ -12,8 +12,8 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est, consequuntur perferendis.</p>
           </div>
 
-          <form method="post" method="POST" action="{{route('find_job')}}" class="search-jobs-form">
-            @csrf
+          <form method="GET" action="{{route('find_job')}}" class="search-jobs-form">
+            
             @include('find_job._form_search_job')
         
 
@@ -38,11 +38,11 @@
 
       <div class="row mb-5 justify-content-center">
         <div class="col-md-7 text-center">
-          <h2 class="section-title mb-2">Có {{count($listJob)}} việc làm tiếng Nhật</h2>
+          <h2 class="section-title mb-2">Có {{$listJob->total()}} việc làm tiếng Nhật</h2>
         </div>
       </div>
       
-      <ul class="job-listings mb-5">
+      <ul class="job-listings mb-5" id="listJobs">
         <table class="table">
           <thead>
             <tr>
@@ -77,7 +77,7 @@
       </ul>
 
       <div class="row text-center">
-        <input type="button" class="btn btn-danger" name="" value="Xem thêm">
+        <input type="button" class="btn btn-danger offset-md-6 see-more" name="" value="Xem thêm">
       </div>
       
      {{--  <div class="row pagination-wrap">
@@ -97,6 +97,8 @@
           </div>
         </div>
       </div> --}}
+
+      {{$listJob->links()}}
 
     </div>
   </section>

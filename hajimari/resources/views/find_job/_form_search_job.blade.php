@@ -7,7 +7,7 @@
 
   {{-- place work --}}
   <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
-    <input type="text" class="form-control form-control-lg place_work_search" placeholder="Địa điểm làm việc">
+    <input type="text" class="form-control form-control-lg place_work_search" placeholder="Địa điểm làm việc" value=>  
     <ul class="list-unstyled dropdown_place_work">
       @foreach($listWorkplace as $city)
       <li>

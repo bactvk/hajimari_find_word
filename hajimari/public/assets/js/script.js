@@ -50,3 +50,18 @@ $(document).ready(function(){
 
 
 })
+
+//xem them
+$(function() {
+  var $listJob = $("#listJobs");
+  var $ul = $("ul.pagination");
+  // $ul.hide(); // Prevent the default Laravel paginator from showing, but we need the links...
+
+  $(".see-more").click(function() {
+      $.get($ul.find("a[rel='next']").attr("href"), function(response) {
+           $listJob.append(
+               $(response).find("#listJobs").html()
+           );
+      });
+  });
+});

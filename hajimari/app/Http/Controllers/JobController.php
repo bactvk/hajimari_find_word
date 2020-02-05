@@ -25,14 +25,6 @@ class JobController extends Controller
     	
     	$data['listJob'] = Job::search($inputs);
 
-    	// if($request->isMethod('post')){
-    	// 	$inputs = [
-
-    	// 	];
-    	// }
-
-    	
-    	
 
     	return view('find_job.list',$data);
     }

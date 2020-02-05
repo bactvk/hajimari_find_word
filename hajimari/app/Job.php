@@ -59,7 +59,7 @@ class Job extends Model
         	$query->whereIn('lang_id',$inputs['laguageLevel']);
         }
 
-        $listJob = $query->get();
+        $listJob = $query->paginate(10);
 
         return $listJob;
     }

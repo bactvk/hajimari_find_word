@@ -1676,6 +1676,10 @@ h1, h2, h3, h4 {
   max-height: 200px;
   overflow-y: auto;
   display: none;
+
+  position: absolute;
+  z-index: 10;
+  width: 92%;
 }
 ul.list-unstyled.dropdown_place_work li:hover {
     background: #ff7c80;
