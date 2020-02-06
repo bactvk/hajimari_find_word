@@ -42,7 +42,7 @@
         </div>
       </div>
       
-      <ul class="job-listings mb-5" id="listJobs">
+      <ul class="job-listings mb-5">
         <table class="table">
           <thead>
             <tr>
@@ -53,7 +53,7 @@
               <th scope="col">Mức lương</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="listJobs">
             @foreach($listJob as $job)
             <tr>
               <td>{{$job['job_category_name']}}</td>
@@ -77,7 +77,7 @@
       </ul>
 
       <div class="row text-center">
-        <input type="button" class="btn btn-danger offset-md-6 see-more" name="" value="Xem thêm">
+        <input type="button" class="btn btn-danger offset-md-6 see-more" name="" value="Xem thêm" pageLength="{{$listJob->lastPage()}}">
       </div>
       
      {{--  <div class="row pagination-wrap">
@@ -98,7 +98,7 @@
         </div>
       </div> --}}
 
-      {{$listJob->links()}}
+      {{ $listJob->appends(Request::all())->links() }}
 
     </div>
   </section>

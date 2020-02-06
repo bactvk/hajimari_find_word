@@ -53,15 +53,30 @@ $(document).ready(function(){
 
 //xem them
 $(function() {
+  let $ul = $("ul.pagination");
+  $ul.hide(); // Prevent the default Laravel paginator from showing, but we need the links...
   var $listJob = $("#listJobs");
-  var $ul = $("ul.pagination");
-  // $ul.hide(); // Prevent the default Laravel paginator from showing, but we need the links...
+  var url = $ul.find("a[rel='next']").attr("href");
+
+ 
+
+  var numberClick = 0;
 
   $(".see-more").click(function() {
-      $.get($ul.find("a[rel='next']").attr("href"), function(response) {
+  	var pageLength = $(this).attr('pagelength');
+  	
+  		numberClick++;
+  	if(numberClick < pageLength){
+
+  		$.get(url, function(response) {
            $listJob.append(
                $(response).find("#listJobs").html()
            );
-      });
+      	});
+
+  	}
+  	
+      
   });
+
 });
