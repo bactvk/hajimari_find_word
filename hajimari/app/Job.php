@@ -54,7 +54,6 @@ class Job extends Model
         	
         }
 
-
         if(!empty($inputs['laguageLevel'])){
         	$query->whereIn('lang_id',$inputs['laguageLevel']);
         }

@@ -12,4 +12,4 @@
 */
 
 
-Route::match(['get','post'],'/','JobController@index')->name('find_job');
+Route::get('/','JobController@index')->name('find_job');
