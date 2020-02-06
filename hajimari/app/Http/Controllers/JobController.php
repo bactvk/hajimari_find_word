@@ -19,13 +19,31 @@ class JobController extends Controller
     		'laguageLevel' 	 => $request->input('laguageLevel',[]),
 
     	];
-
+    	
     	$data['listWorkplace'] = Area::list();
     	$data['listField'] = Job::getListField();
     	$data['listJob'] = Job::search($inputs);
 
 
     	return view('find_job.list',$data);
+    }  
+
+    public function indexConditon(Request $request)
+    {
+    	$inputs = [
+    		'nameJob'		 => $request->input('nameJob',''), 
+    		'workplace' 	 => $request->input('workplace',[]),
+    		'field_parent' 	 => $request->input('field_parent',[]),   // category
+    		'field_child' 	 => $request->input('field_child',[]),
+    		'salaryLevel' 	 => $request->input('salaryLevel',[]),
+    		'laguageLevel' 	 => $request->input('laguageLevel',[]),
+
+    	];
+    	$page = $request->input('page','');
+
+    	$data['listJob'] = Job::search($inputs,$page);
+
+    	return response()->json($data['listJob']);
     }
 
 }

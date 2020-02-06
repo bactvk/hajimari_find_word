@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/animate.min.css">
 
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="assets/css/style.css">    
   </head>
@@ -262,8 +263,7 @@
         </div>
       </div>
     </footer>
-  
-  </div>
+</div>
 
     <!-- SCRIPTS -->
     <script src="assets/js/jquery.min.js"></script>
@@ -278,7 +278,7 @@
     <script src="assets/js/owl.carousel.min.js"></script>
     
     <script src="assets/js/bootstrap-select.min.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/script.js"></script>
      

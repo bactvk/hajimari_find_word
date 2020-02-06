@@ -9,7 +9,7 @@
         <div class="col-md-12">
           <div class="mb-5 text-center">
             <h1 class="text-white font-weight-bold">The Easiest Way To Get Your Dream Job</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est, consequuntur perferendis.</p>
+            
           </div>
 
           <form method="GET" action="{{route('find_job')}}" class="search-jobs-form">
@@ -26,19 +26,14 @@
     <a href="#next" class="scroll-button smoothscroll">
       <span class=" icon-keyboard_arrow_down"></span>
     </a>
-
   </section>
   
-  
-
-  
-
   <section class="site-section">
     <div class="container">
 
       <div class="row mb-5 justify-content-center">
         <div class="col-md-7 text-center">
-          <h2 class="section-title mb-2">Có {{$listJob->total()}} việc làm tiếng Nhật</h2>
+          <h2 class="section-title mb-2">Có  việc làm tiếng Nhật</h2>
         </div>
       </div>
       
@@ -58,14 +53,7 @@
             <tr>
               <td>{{$job['job_category_name']}}</td>
               <td>{{$job['name']}}</td>
-              <td>
-                <?php 
-                    if($job['location']){
-                      $location = \App\Area::where('id',$job['location'])->pluck('name');
-                    }
-                ?>
-                {{$location?$location[0]:''}}
-              </td>
+              <td>{{$job['area_name']}}</td>
               <td>{{$job['lang_id']?"N".$job['lang_id']:''}}</td>
               <td>{{$job['salary_from']}} - {{$job['salary_to']}}$</td>
             </tr>
@@ -77,7 +65,7 @@
       </ul>
 
       <div class="row text-center">
-        <input type="button" class="btn btn-danger offset-md-6 see-more" name="" value="Xem thêm" pageLength="{{$listJob->lastPage()}}">
+        <input type="button" url="{{route('find_job_ajax',Request::all()) }}" class="btn btn-danger offset-md-6 see-more" name="" value="Xem thêm" >
       </div>
       
      {{--  <div class="row pagination-wrap">
@@ -98,7 +86,7 @@
         </div>
       </div> --}}
 
-      {{ $listJob->appends(Request::all())->links() }}
+      {{-- {{ $listJob->appends(Request::all())->links() }} --}}
 
     </div>
   </section>

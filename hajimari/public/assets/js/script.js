@@ -47,36 +47,90 @@ $(document).ready(function(){
 	})
 
 
-
+	$(".js-example-basic-multiple").select2({
+	    placeholder: "Địa điểm làm việc",
+	    maximumSelectionLength: 3,
+	});
+	
 
 })
 
-//xem them
-$(function() {
-  let $ul = $("ul.pagination");
-  $ul.hide(); // Prevent the default Laravel paginator from showing, but we need the links...
-  var $listJob = $("#listJobs");
-  var url = $ul.find("a[rel='next']").attr("href");
+//see more
+// $(function() {
+//   var $ul = $("ul.pagination");
+//   $ul.hide();
+//   var $listJob = $("#listJobs");
+//   var url = $ul.find("a[rel='next']").attr("href");   //hajimari.localhost.vn/?workplace%5B0%5D=1&laguageLevel%5B0%5D=2&page=3
+//   var numberClick = 0;
 
- 
+//   var tmp = url.split("=");  //get page
+//   var page = parseInt(tmp[tmp.length-1])-1;
 
-  var numberClick = 0;
+//   // alert(url);
 
-  $(".see-more").click(function() {
-  	var pageLength = $(this).attr('pagelength');
+//   $(".see-more").click(function() {
+
+//   	page++;
+
+//   	var tmp = url.lastIndexOf("=");
+//   	var url_slice = url.slice(0,tmp);
+//   	url = url_slice+"="+page;
   	
-  		numberClick++;
-  	if(numberClick < pageLength){
 
-  		$.get(url, function(response) {
-           $listJob.append(
-               $(response).find("#listJobs").html()
-           );
-      	});
+//   	var pageLength = $(this).attr('pagelength');
+  	
+//   		numberClick++;
+//   	if(numberClick < pageLength){
 
-  	}
+//   		$.get(url, function(data) {
+//            $listJob.append(
+//                $(data).find("#listJobs").html()
+//            );
+//       	});
+
+  		
+//   	}else { $(this).css('display','none'); }
   	
       
-  });
+//   });
+
+// });
+
+$(function() {
+  	
+  	var page = 1;
+    
+    $('.see-more').click(function(){
+    	page += 1;
+    	var url = $(this).attr('url');
+    	
+    	$.get(url,{ page : page } ,function(data) {
+    		var html = '';
+    		for (var item in data){
+    			// console.log(data[item]);
+    			if(data[item]['lang_id']!=null) data[item]['lang_id']="N"+data[item]['lang_id'];
+    			else data[item]['lang_id'] = '';
+
+    			html += '<tr>'+
+	              '<td>' + data[item]['job_category_name'] + '</td>'+
+	              '<td>' + data[item]['name'] + '</td>'+
+	              '<td>'+ data[item]['area_name'] + '</td>'+
+	              '<td>' + data[item]['lang_id'] +'</td>'+
+	              '<td>'+ data[item]['salary_from'] + "-" + data[item]['salary_to']+'$' + '</td>'+
+	            '</tr>';
+
+    		}
+    		// console.log(html);
+    		if(data.length>0 )
+           		$('#listJobs').append(html);
+	      	else{
+	      		
+	      		$('.see-more').css('display','none');
+	      	}
+	  	});
+
+
+    })
+	
 
 });

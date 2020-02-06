@@ -19,15 +19,15 @@ class Job extends Model
     	return self::where('category_id',$id)->get();
     }
 
-    public static function search($inputs)
+    public static function search($inputs,$page=0)
     {
     	$query = self::query();
-    	$query->select('job_category.name','jobs.name','jobs.location','jobs.lang_id','jobs.salary_from','jobs.salary_to',
+    	$query->select('job_category.name','jobs.name','area.name as area_name','jobs.lang_id','jobs.salary_from','jobs.salary_to',
                 DB::raw('job_category.name as job_category_name','area.name as area_name')
             )->leftJoin('job_category', function($join) {
                 $join->on('job_category.id', '=', 'jobs.category_id');
 
-            })->get();
+            })->leftJoin('area','area.id','=','jobs.location');
 
 
       	if(!empty($inputs['nameJob'])){
@@ -58,7 +58,14 @@ class Job extends Model
         	$query->whereIn('lang_id',$inputs['laguageLevel']);
         }
 
-        $listJob = $query->paginate(10);
+        $total_record_per_page = 10;
+
+        // $listJob = $query->paginate(10); 
+        $TotalListJob = $query->count();
+        $from_page = ($page - 1)*$total_record_per_page;
+        $listJob = $query->offset($from_page)->limit($total_record_per_page)->get();
+		
+   		
 
         return $listJob;
     }
