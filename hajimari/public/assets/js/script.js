@@ -2,9 +2,17 @@ $(document).ready(function(){
 	
 
 	$('input.place_work_search').click(function(){
-		$(this).siblings().toggleClass("show");
+
+		if($('input.place_work_search').siblings().hasClass("show")){
+
+			$('input.place_work_search').siblings().removeClass("show");
+		}else{
+			$(this).siblings().toggleClass("show");
+		}
+
 	})
 	
+
 	var city = '',field='',salary_level='',languge_level='';
 
 	$('body').on('click','.workplace',function(){
