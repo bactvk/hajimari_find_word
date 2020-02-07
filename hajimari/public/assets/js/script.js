@@ -68,8 +68,6 @@ $(document).ready(function(){
 		}else{
 			$(this).parent().parent().parent().siblings('.place_work_search').attr('value',salary_level.replace(/,\s*$/, ""));
 		}
-
-		
 	})
 
 	$('body').on('click','.field_search_languge',function(){ 
@@ -88,17 +86,28 @@ $(document).ready(function(){
 			$(this).parent().parent().parent().html('<li style="padding:8px 14px;border:1px solid">You can only select 3 items</li>');
 		}else{
 			$(this).parent().parent().parent().siblings('.place_work_search').attr('value',languge_level.replace(/,\s*$/, ""));
-		}
-
-		
+		}	
 	})
 
 
-	// $(".js-example-basic-multiple").select2({
-	//     placeholder: "Địa điểm làm việc",
-	//     maximumSelectionLength: 3,
+	// select2
+	$(".js-example-basic-multiple").select2({
+	    placeholder: "Địa điểm làm việc",
+	    maximumSelectionLength: 3,
+	    closeOnSelect: false
+	});
+
+	// $(".js-example-basic-multiple").on("select2:select", function (e) { 
+	//   var select_val = $(e.currentTarget).val();
+	//   $(this).siblings().val(select_val);
+	//   console.log(select_val)
 	// });
+
 	
+	// 
+
+
+
 	$(function() {
   	
 	  	var page = 1;

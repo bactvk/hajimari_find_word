@@ -7,7 +7,7 @@
   </div>
 
   {{-- place work --}}
-  <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
+  {{-- <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
     <input type="text" class="form-control form-control-lg place_work_search" value="{{$inputs['workplace']}}" placeholder="Địa điểm làm việc" readonly>  
     <ul class="list-unstyled dropdown_place_work">
       @foreach($listWorkplace as $city)
@@ -16,18 +16,18 @@
       </li>
       @endforeach
     </ul>
-  </div>
+  </div> --}}
 
-  {{-- <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
-    <select name="tags[]" class="form-control form-control-lg js-example-basic-multiple" multiple="multiple">
+  <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
+    <select name="workplace[]" class="form-control form-control-lg js-example-basic-multiple" multiple="multiple">
         <option></option>
         @foreach($listWorkplace as $city)
           
-            <option value="{{$city->id}}" > {{$city->name}} </option>
+            <option value="{{$city->id}}" {{ ( isset(Request()->workplace) && in_array($city->id,(Request()->workplace)) )?'selected':'' }} > {{$city->name}} </option>
          
         @endforeach
     </select>
-  </div> --}}
+  </div>
 
 
   {{-- linh vuc --}}

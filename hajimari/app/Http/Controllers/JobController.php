@@ -10,6 +10,7 @@ class JobController extends Controller
 {
     public function index(Request $request)
     {
+        
     	$inputs = [
     		'nameJob'		 => $request->input('nameJob',''), 
     		'workplace' 	 => $request->input('workplace',[]),
