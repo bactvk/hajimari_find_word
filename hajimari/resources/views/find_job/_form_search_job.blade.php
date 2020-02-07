@@ -8,7 +8,7 @@
 
   {{-- place work --}}
   <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
-    <input type="text" class="form-control form-control-lg place_work_search" value="{{$inputs['workplace']}}" placeholder="Địa điểm làm việc">  
+    <input type="text" class="form-control form-control-lg place_work_search" value="{{$inputs['workplace']}}" placeholder="Địa điểm làm việc" readonly>  
     <ul class="list-unstyled dropdown_place_work">
       @foreach($listWorkplace as $city)
       <li>
@@ -32,7 +32,7 @@
 
   {{-- linh vuc --}}
   <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4  mb-lg-0">
-    <input type="text" value="{{$inputs['field']}}" class="form-control form-control-lg place_work_search" placeholder="Lĩnh vực" >
+    <input type="text" value="{{$inputs['field']}}" class="form-control form-control-lg place_work_search" placeholder="Lĩnh vực" readonly >
     <ul class="list-unstyled dropdown_place_work">
       @foreach($listField as $field)
         <li>
@@ -53,7 +53,7 @@
 
   {{-- salary --}}
   <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mt-4 mb-lg-0">
-    <input type="text" class="form-control form-control-lg place_work_search" placeholder="Mức lương" value="{{$inputs['salaryLevel']}}">
+    <input type="text" class="form-control form-control-lg place_work_search" placeholder="Mức lương" value="{{$inputs['salaryLevel']}}"readonly>
     <ul class="list-unstyled  dropdown_place_work">
       <li>
         <label><input type="checkbox" class="field_search_salary" name="salaryLevel[]" value="1" /> < 500$</label>
@@ -79,7 +79,7 @@
 
   {{-- laguage --}}
   <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mt-4 mb-lg-0">
-    <input type="text" class="form-control form-control-lg place_work_search" value="{{$inputs['laguageLevel']}}" placeholder="Trình độ tiếng nhật">
+    <input type="text" class="form-control form-control-lg place_work_search" value="{{$inputs['laguageLevel']}}" placeholder="Trình độ tiếng nhật" readonly>
     <ul class="list-unstyled  dropdown_place_work">
       <li>
         <label><input class="field_search_languge" name="laguageLevel[]" type="checkbox" value="1" />N1</label>
