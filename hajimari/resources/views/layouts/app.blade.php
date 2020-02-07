@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/animate.min.css">
 
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    {{-- <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" /> --}}
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="assets/css/style.css">    
   </head>
@@ -93,34 +93,14 @@
 
     @yield('content')
 
-    <section class="py-5 bg-image overlay-primary fixed overlay" style="background-image: url('images/hero_1.jpg');">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-8">
-            <h2 class="text-white">Looking For A Job?</h2>
-            <p class="mb-0 text-white lead">Lorem ipsum dolor sit amet consectetur adipisicing elit tempora adipisci impedit.</p>
-          </div>
-          <div class="col-md-3 ml-auto">
-            <a href="#" class="btn btn-warning btn-block btn-lg">Sign Up</a>
-          </div>
-        </div>
-      </div>
-    </section>
+  
 
     
     <section class="site-section py-4">
       <div class="container">
   
         <div class="row align-items-center">
-          <div class="col-12 text-center mt-4 mb-5">
-            <div class="row justify-content-center">
-              <div class="col-md-7">
-                <h2 class="section-title mb-2">Company We've Helped</h2>
-                <p class="lead">Porro error reiciendis commodi beatae omnis similique voluptate rerum ipsam fugit mollitia ipsum facilis expedita tempora suscipit iste</p>
-              </div>
-            </div>
-            
-          </div>
+         
           <div class="col-6 col-lg-3 col-md-6 text-center">
             <img src="images/logo_mailchimp.svg" alt="Image" class="img-fluid logo-1">
           </div>
@@ -147,65 +127,10 @@
             <img src="images/logo_airbnb.svg" alt="Image" class="img-fluid logo-8">
           </div>
         </div>
-      </div>
-    </section>
-
-
-    <section class="bg-light pt-5 testimony-full">
         
-        <div class="owl-carousel single-carousel">
-
-        
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-6 align-self-center text-center text-lg-left">
-                <blockquote>
-                  <p>&ldquo;Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae.&rdquo;</p>
-                  <p><cite> &mdash; Corey Woods, @Dribbble</cite></p>
-                </blockquote>
-              </div>
-              <div class="col-lg-6 align-self-end text-center text-lg-right">
-                <img src="images/person_transparent_2.png" alt="Image" class="img-fluid mb-0">
-              </div>
-            </div>
-          </div>
-
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-6 align-self-center text-center text-lg-left">
-                <blockquote>
-                  <p>&ldquo;Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae.&rdquo;</p>
-                  <p><cite> &mdash; Chris Peters, @Google</cite></p>
-                </blockquote>
-              </div>
-              <div class="col-lg-6 align-self-end text-center text-lg-right">
-                <img src="images/person_transparent.png" alt="Image" class="img-fluid mb-0">
-              </div>
-            </div>
-          </div>
-
-      </div>
-
-    </section>
-
-    <section class="pt-5 bg-image overlay-primary fixed overlay" style="background-image: url('images/hero_1.jpg');">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 align-self-center text-center text-md-left mb-5 mb-md-0">
-            <h2 class="text-white">Get The Mobile Apps</h2>
-            <p class="mb-5 lead text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit tempora adipisci impedit.</p>
-            <p class="mb-0">
-              <a href="#" class="btn btn-dark btn-md px-4 border-width-2"><span class="icon-apple mr-3"></span>App Store</a>
-              <a href="#" class="btn btn-dark btn-md px-4 border-width-2"><span class="icon-android mr-3"></span>Play Store</a>
-            </p>
-          </div>
-          <div class="col-md-6 ml-auto align-self-end">
-            <img src="images/apps.png" alt="Free Website Template by Free-Template.co" class="img-fluid">
-          </div>
-        </div>
       </div>
     </section>
-    
+
     <footer class="site-footer">
 
       <a href="#top" class="smoothscroll scroll-top">
@@ -278,7 +203,7 @@
     <script src="assets/js/owl.carousel.min.js"></script>
     
     <script src="assets/js/bootstrap-select.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script> --}}
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/script.js"></script>
      

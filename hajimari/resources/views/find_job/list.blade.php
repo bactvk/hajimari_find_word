@@ -33,7 +33,7 @@
 
       <div class="row mb-5 justify-content-center">
         <div class="col-md-7 text-center">
-          <h2 class="section-title mb-2">Có  việc làm tiếng Nhật</h2>
+          <h2 class="section-title mb-2">Có {{$listJob['totalRecord']}} việc làm tiếng Nhật</h2>
         </div>
       </div>
       
@@ -49,7 +49,7 @@
             </tr>
           </thead>
           <tbody id="listJobs">
-            @foreach($listJob as $job)
+            @foreach($listJob->forget('totalRecord') as $job)
             <tr>
               <td>{{$job['job_category_name']}}</td>
               <td>{{$job['name']}}</td>

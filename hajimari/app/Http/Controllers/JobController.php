@@ -23,6 +23,7 @@ class JobController extends Controller
     	$data['listWorkplace'] = Area::list();
     	$data['listField'] = Job::getListField();
     	$data['listJob'] = Job::search($inputs);
+        $data['inputs'] = Area::convertValue($inputs);
 
 
     	return view('find_job.list',$data);
