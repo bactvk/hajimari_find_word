@@ -13,4 +13,5 @@
 
 
 Route::get('/','JobController@index')->name('find_job');
+
 Route::get('find_job_ajax','JobController@indexConditon')->name('find_job_ajax');
