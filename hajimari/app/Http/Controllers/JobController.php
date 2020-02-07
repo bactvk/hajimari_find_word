@@ -14,8 +14,6 @@ class JobController extends Controller
     	$inputs = [
     		'nameJob'		 => $request->input('nameJob',''), 
     		'workplace' 	 => $request->input('workplace',[]),
-    		'field_parent' 	 => $request->input('field_parent',[]),   // category
-    		'field_child' 	 => $request->input('field_child',[]),
     		'salaryLevel' 	 => $request->input('salaryLevel',[]),
     		'laguageLevel' 	 => $request->input('laguageLevel',[]),
             'field_search'   => $request->input('field_search',[])
@@ -27,7 +25,7 @@ class JobController extends Controller
     	$data['listJob'] = Job::search($inputs);
         $data['listLanguage'] = Job::getListLanguage();
 
-        $data['inputs'] = Area::convertValue($inputs);
+        $data['inputs'] =$inputs;
 
         
 
@@ -39,10 +37,9 @@ class JobController extends Controller
     	$inputs = [
     		'nameJob'		 => $request->input('nameJob',''), 
     		'workplace' 	 => $request->input('workplace',[]),
-    		'field_parent' 	 => $request->input('field_parent',[]),   // category
-    		'field_child' 	 => $request->input('field_child',[]),
     		'salaryLevel' 	 => $request->input('salaryLevel',[]),
     		'laguageLevel' 	 => $request->input('laguageLevel',[]),
+            'field_search'   => $request->input('field_search',[])
 
     	];
     	$page = $request->input('page','');
