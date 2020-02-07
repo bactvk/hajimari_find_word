@@ -14,11 +14,28 @@ $(document).ready(function(){
 	    closeOnSelect: false
 	});
 
-	// $(".field_search").select2({
-	//     placeholder: "Lĩnh vực",
-	//     maximumSelectionLength: 3,
-	//     closeOnSelect: false
-	// });
+	$(".field_search").select2({
+	    placeholder: "Lĩnh vực",
+	    maximumSelectionLength: 3,
+	    closeOnSelect: false,
+		    //style field parent
+		templateResult: function (data) {    
+		
+		    if (!data.element) {
+		      return data.text;
+		    }
+
+		    var $element = $(data.element);
+
+		    var $wrapper = $('<span></span>');
+		    $wrapper.addClass($element[0].className);
+
+		    $wrapper.text(data.text);
+
+		    return $wrapper;
+		  }
+
+	});
 
 	$(".laguageLevel").select2({
 	    placeholder: "Trình độ tiếng nhật",
@@ -32,6 +49,7 @@ $(document).ready(function(){
 	    closeOnSelect: false
 	});
 
+	
 
 	$(function() {
   	

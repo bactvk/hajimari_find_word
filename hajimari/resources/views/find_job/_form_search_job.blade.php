@@ -2,7 +2,7 @@
 
 
   <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
-    <input type="text" value="{{$inputs['nameJob']}}" name="nameJob" class="form-control form-control-lg place_work_search" placeholder="Nhập tên việc làm">
+    <input type="text" value="{{$inputs['nameJob']}}" name="nameJob" class="form-control form-control-lg place_work_search" placeholder="Nhập tên việc làm" autocomplete="off">
     <div></div>
   </div>
 
@@ -32,14 +32,14 @@
 
   {{-- linh vuc --}}
   
-  <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4  mb-lg-0">
+  {{-- <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4  mb-lg-0">
     <input type="text" value="{{$inputs['field']}}" class="form-control form-control-lg place_work_search" placeholder="Lĩnh vực" readonly >
     <ul class="list-unstyled dropdown_place_work">
       @foreach($listField as $field)
         <li>
           <label class="field_parent"><input type="checkbox" class="field_search" name="field_parent[]" value="{{$field->id}}" />{{$field->name}}</label>
         </li>
-        <?php $field_child = \App\Job::getFieldParent($field->id) ?>
+        
         @if($field_child)
           @foreach($field_child as $item)
             <li>
@@ -50,11 +50,9 @@
       @endforeach
       
     </ul>
-  </div>
+  </div> --}}
 
-
-
-  {{-- <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4  mb-lg-0">
+  <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4  mb-lg-0">
    
       <select name="field_search[]" class="form-control form-control-lg field_search" multiple="multiple">
         <option></option>
@@ -63,7 +61,7 @@
 
           <option class="field_parent" value="{{$field->id}}"  > {{$field->name}} </option>
 
-          
+          <?php $field_child = \App\Job::getFieldParent($field->id) ?>
           @if($field_child)
             @foreach($field_child as $item)
               <option class="field_child" value="{{$item->id}}" > {{$item->name}} </option>
@@ -73,7 +71,7 @@
         @endforeach
 
       </select> 
-  </div> --}}
+  </div>
 
   {{-- salary --}}
   {{-- <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mt-4 mb-lg-0">

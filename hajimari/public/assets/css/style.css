@@ -1708,8 +1708,13 @@ ul.list-unstyled.dropdown_place_work .field_parent{
   font-weight: bold;
 }
 .field_child{
-  padding-right: 6px;
+  padding-left: 20px !important;
 }
 .select2-selection__rendered{
   padding: 4px 15px !important;
+}
+
+.field_parent{
+  padding-left: 5px !important;
+  font-weight: bold !important;
 }

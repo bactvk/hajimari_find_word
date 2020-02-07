@@ -22,9 +22,8 @@ class Job extends Model
     public static function search($inputs,$page=1)
     {
     	$query = self::query();
-    	$query->select('job_category.name','jobs.name','area.name as area_name','jobs.lang_id','jobs.salary_from','jobs.salary_to',
-                DB::raw('job_category.name as job_category_name','area.name as area_name')
-            )->leftJoin('job_category', function($join) {
+    	$query->select('job_category.name as job_category_name','jobs.name','area.name as area_name','jobs.lang_id','jobs.salary_from','jobs.salary_to')
+            ->leftJoin('job_category', function($join) {
                 $join->on('job_category.id', '=', 'jobs.category_id');
 
             })->leftJoin('area','area.id','=','jobs.location');
@@ -38,30 +37,39 @@ class Job extends Model
         	$query->whereIn('location',$inputs['workplace']);
         }
 
-        if(!empty($inputs['field_parent']) || !empty($inputs['field_child'])){
+        // if(!empty($inputs['field_parent']) || !empty($inputs['field_child'])){
 
-            if(!empty($inputs['field_parent']) && !empty($inputs['field_child'])){
-                $inputs['field_parent'] = DB::table('job_category')->where('parent_id',$inputs['field_parent'])->pluck('id')->toArray();
+        //     if(!empty($inputs['field_parent']) && !empty($inputs['field_child'])){
+        //         $inputs['field_parent'] = DB::table('job_category')->where('parent_id',$inputs['field_parent'])->pluck('id')->toArray();
 
-                $inputs['field'] = array_merge($inputs['field_parent'],$inputs['field_child']);
+        //         $inputs['field'] = array_merge($inputs['field_parent'],$inputs['field_child']);
 
-                $query->whereIn('category_id',$inputs['field']);
+        //         $query->whereIn('category_id',$inputs['field']);
 
-            }elseif(!empty($inputs['field_parent'])){
-                $inputs['field_parent'] = DB::table('job_category')->where('parent_id',$inputs['field_parent'])->pluck('id')->toArray();
-                $query->whereIn('category_id',$inputs['field_parent']);
+        //     }elseif(!empty($inputs['field_parent'])){
+        //         $inputs['field_parent'] = DB::table('job_category')->where('parent_id',$inputs['field_parent'])->pluck('id')->toArray();
+        //         $query->whereIn('category_id',$inputs['field_parent']);
         
-            }elseif(!empty($inputs['field_child'])){
+        //     }elseif(!empty($inputs['field_child'])){
                
-                $query->whereIn('category_id',$inputs['field_child']);
+        //         $query->whereIn('category_id',$inputs['field_child']);
         
-            }
-
-            
-
+        //     }
         	
-        }
+        // }
         
+        if(!empty($inputs['field_search'])){
+
+            $listParent_id = DB::table('job_category')->whereIn('id',$inputs['field_search'])->where('parent_id',0)->pluck('id')->toArray();
+
+           if(!empty($listParent_id)){
+                $listCategory = DB::table('job_category')->whereIn('parent_id',$listParent_id)->pluck('id')->toArray();
+
+                $query->whereIn('category_id',$listCategory);
+           }
+
+           $query->whereIn('category_id',$inputs['field_search'],'or');
+        }
 
         if(!empty($inputs['salaryLevel'])){
         	$salary_level = $inputs['salaryLevel'];
