@@ -39,7 +39,13 @@ class Job extends Model
         }
 
         if(!empty($inputs['field_parent'])){
+            $inputs['field_parent'] = DB::table('job_category')->where('parent_id',$inputs['field_parent'])->pluck('id')->toArray();
+
         	$query->whereIn('category_id',$inputs['field_parent']);
+        }
+        if(!empty($inputs['field_child'])){
+          
+            $query->whereIn('category_id',$inputs['field_child']);
         }
 
         if(!empty($inputs['salaryLevel'])){

@@ -42,7 +42,7 @@
         @if($field_child)
           @foreach($field_child as $item)
             <li>
-              <label ><input type="checkbox" class="field_search" name="field_child[]" value="{{$item->id}}" />{{$item->name}}</label>
+              <label><input type="checkbox" class="field_search" name="field_child[]" value="{{$item->id}}" />{{$item->name}}</label>
             </li>
           @endforeach
         @endif

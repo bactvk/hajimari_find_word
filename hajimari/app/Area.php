@@ -40,7 +40,7 @@ class Area extends Model
         	}
 
         	if(!empty($inputs['field_child'])){
-				$result_field_child = Job::whereIn('id',$inputs['field_child'])->pluck('name')->toArray();
+				$result_field_child = DB::table('job_category')->whereIn('id',$inputs['field_child'])->pluck('name')->toArray();
 
         	}
             $result = array_merge($result_field_parent,$result_field_child);
