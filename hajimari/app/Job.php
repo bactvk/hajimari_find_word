@@ -14,9 +14,9 @@ class Job extends Model
     	return DB::table('job_category')->get();
     }
 
-    public static function getFieldChild($id)
+    public static function getFieldParent($id)
     {
-    	return self::where('category_id',$id)->get();
+    	return DB::table('job_category')->where('parent_id',$id)->get();
     }
 
     public static function search($inputs,$page=1)

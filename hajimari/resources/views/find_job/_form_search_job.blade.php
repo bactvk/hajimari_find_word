@@ -38,11 +38,11 @@
         <li>
           <label class="field_parent"><input type="checkbox" class="field_search" name="field_parent[]" value="{{$field->id}}" />{{$field->name}}</label>
         </li>
-        <?php $field_child = \App\Job::getFieldChild($field->id) ?>
+        <?php $field_child = \App\Job::getFieldParent($field->id) ?>
         @if($field_child)
           @foreach($field_child as $item)
             <li>
-              <label class="lowercaseText"><input type="checkbox" class="field_search" name="field_child[]" value="{{$item->id}}" />{{$item->name}}</label>
+              <label ><input type="checkbox" class="field_search" name="field_child[]" value="{{$item->id}}" />{{$item->name}}</label>
             </li>
           @endforeach
         @endif
