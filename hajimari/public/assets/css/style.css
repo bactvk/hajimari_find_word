@@ -1704,3 +1704,12 @@ ul.list-unstyled.dropdown_place_work .field_parent{
 .dropdown_place_work input[type=checkbox]{
   display: none;
 }
+.styleParent{
+  font-weight: bold;
+}
+.field_child{
+  padding-right: 6px;
+}
+.select2-selection__rendered{
+  padding: 4px 15px !important;
+}

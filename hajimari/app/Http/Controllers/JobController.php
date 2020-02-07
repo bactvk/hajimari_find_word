@@ -24,6 +24,8 @@ class JobController extends Controller
     	$data['listWorkplace'] = Area::list();
     	$data['listField'] = Job::getListField();
     	$data['listJob'] = Job::search($inputs);
+        $data['listLanguage'] = Job::getListLanguage();
+        
         $data['inputs'] = Area::convertValue($inputs);
 
 

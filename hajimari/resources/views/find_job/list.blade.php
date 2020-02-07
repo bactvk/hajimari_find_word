@@ -28,7 +28,7 @@
     </a>
   </section>
   
-  <section class="site-section">
+  <section class="site-section" id="next">
     <div class="container">
 
       <div class="row mb-5 justify-content-center">

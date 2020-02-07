@@ -31,6 +31,7 @@
 
 
   {{-- linh vuc --}}
+  
   <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4  mb-lg-0">
     <input type="text" value="{{$inputs['field']}}" class="form-control form-control-lg place_work_search" placeholder="Lĩnh vực" readonly >
     <ul class="list-unstyled dropdown_place_work">
@@ -51,8 +52,31 @@
     </ul>
   </div>
 
+
+
+  {{-- <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4  mb-lg-0">
+   
+      <select name="field_search[]" class="form-control form-control-lg field_search" multiple="multiple">
+        <option></option>
+
+        @foreach($listField as $field)
+
+          <option class="field_parent" value="{{$field->id}}"  > {{$field->name}} </option>
+
+          
+          @if($field_child)
+            @foreach($field_child as $item)
+              <option class="field_child" value="{{$item->id}}" > {{$item->name}} </option>
+            @endforeach
+
+          @endif
+        @endforeach
+
+      </select> 
+  </div> --}}
+
   {{-- salary --}}
-  <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mt-4 mb-lg-0">
+  {{-- <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mt-4 mb-lg-0">
     <input type="text" class="form-control form-control-lg place_work_search" placeholder="Mức lương" value="{{$inputs['salaryLevel']}}"readonly>
     <ul class="list-unstyled  dropdown_place_work">
       <li>
@@ -75,10 +99,31 @@
       </li>
 
     </ul>
+  </div> --}}
+
+  <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mt-4 mb-lg-0">
+    <select name="salaryLevel[]" class="form-control form-control-lg salaryLevel" multiple="multiple">
+        <option></option>
+        @for($i=1; $i<=6; $i++)
+          
+            <option value="{{$i}}" {{ ( isset(Request()->salaryLevel) && in_array($i,(Request()->salaryLevel)) )?'selected':'' }} >
+                @if($i==1) {{"< 500$"}}
+                @elseif($i==2) {{"500 - 1000$"}}
+                @elseif($i==3) {{"1001$ - 1500$"}}
+                @elseif($i==4) {{"1501$ - 2000$"}}
+                @elseif($i==5) {{"2001$ - 2500$"}}
+                @elseif($i==6) {{">2500$"}}
+
+                @endif 
+                
+            </option>
+         
+        @endfor
+    </select>
   </div>
 
   {{-- laguage --}}
-  <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mt-4 mb-lg-0">
+  {{-- <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mt-4 mb-lg-0">
     <input type="text" class="form-control form-control-lg place_work_search" value="{{$inputs['laguageLevel']}}" placeholder="Trình độ tiếng nhật" readonly>
     <ul class="list-unstyled  dropdown_place_work">
       <li>
@@ -98,6 +143,16 @@
       </li>
      
     </ul>
+  </div> --}}
+  <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mt-4 mb-lg-0">
+    <select name="laguageLevel[]" class="form-control form-control-lg laguageLevel" multiple="multiple">
+        <option></option>
+        @foreach($listLanguage as $lang)
+          
+            <option {{ ( isset(Request()->laguageLevel) && in_array($lang,(Request()->laguageLevel)) )?'selected':'' }} value="{{$lang}}" > {{"N".$lang}} </option>
+         
+        @endforeach
+    </select>
   </div>
 
 

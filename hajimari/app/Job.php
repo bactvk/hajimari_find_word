@@ -138,4 +138,11 @@ class Job extends Model
 		}
 
     }
+
+    public static function getListLanguage()
+    {
+        return self::orderBy('lang_id','asc')->distinct()->pluck('lang_id')->reject(function ($value) {
+            return !$value;  // remove value 0,null
+        });
+    }
 }

@@ -97,6 +97,29 @@ $(document).ready(function(){
 	    closeOnSelect: false
 	});
 
+	// $(".field_search").select2({
+	//     placeholder: "Lĩnh vực",
+	//     maximumSelectionLength: 3,
+	//     closeOnSelect: false
+	// });
+
+
+
+
+	$(".laguageLevel").select2({
+	    placeholder: "Trình độ tiếng nhật",
+	    maximumSelectionLength: 3,
+	    closeOnSelect: false
+	});
+  
+	$(".salaryLevel").select2({
+	    placeholder: "Mức lương",
+	    maximumSelectionLength: 3,
+	    closeOnSelect: false
+	});
+
+	
+
 	// $(".js-example-basic-multiple").on("select2:select", function (e) { 
 	//   var select_val = $(e.currentTarget).val();
 	//   $(this).siblings().val(select_val);
