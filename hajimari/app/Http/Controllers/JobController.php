@@ -22,6 +22,8 @@ class JobController extends Controller
     	];
     	
     	$data['listWorkplace'] = Area::list();
+        $data['salaryLevel'] = config('app_config.salaryLevel');
+        
 
         $listField = new JobCategory;
         // \DB::enableQueryLog();

@@ -72,17 +72,16 @@ class Job extends Model
 
 		if($page == 1) $listJob['totalRecord'] = $query->count();
 
-   	
         return $listJob;
     }
 
     public static function SelectSalaryLevel($i,$salary_level,$query){
     	if($i==0){  // 0 -> where , 1-> orWhere
 			if($salary_level[$i]==1){
-				$query->where('salary_to','<=',500);
+				$query->where('salary_to','<',500);
 			}
 			else if($salary_level[$i]==2){
-				$query->where('salary_from','>',500)->where('salary_to','<=',1000);
+				$query->where('salary_from','>=',500)->where('salary_to','<=',1000);
 			}
 			else if($salary_level[$i]==3){
 				$query->where('salary_from','>',1000)->where('salary_to','<=',1500);
@@ -99,10 +98,10 @@ class Job extends Model
         			
 		}else{
 			if($salary_level[$i]==1){
-				$query->Orwhere('salary_from','<=',500);
+				$query->Orwhere('salary_from','<',500);
 			}
 			else if($salary_level[$i]==2){
-				$query->Orwhere('salary_from','>',500)->Orwhere('salary_to','<=',1000);
+				$query->Orwhere('salary_from','>=',500)->Orwhere('salary_to','<=',1000);
 			}
 			else if($salary_level[$i]==3){
 				$query->Orwhere('salary_from','>',1000)->Orwhere('salary_to','<=',1500);
