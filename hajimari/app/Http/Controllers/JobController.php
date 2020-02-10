@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Area;
 use App\Job;
+use App\JobCategory;
 
 class JobController extends Controller
 {
@@ -21,7 +22,13 @@ class JobController extends Controller
     	];
     	
     	$data['listWorkplace'] = Area::list();
-    	$data['listField'] = Job::getListField();
+
+        $listField = new JobCategory;
+        // \DB::enableQueryLog();
+    	$data['listField'] =$listField->getListField();
+        // dd(\DB::getQueryLog());
+
+    
     	$data['listJob'] = Job::search($inputs);
         $data['listLanguage'] = Job::getListLanguage();
 

@@ -58,14 +58,11 @@
         <option></option>
 
         @foreach($listField as $field)
-
+          @if($field->parent_id == 0)
           <option class="field_parent" value="{{$field->id}}" {{ ( isset(Request()->field_search) && in_array($field->id,(Request()->field_search)) )?'selected':'' }}  > {{$field->name}} </option>
 
-          <?php $field_child = \App\Job::getFieldParent($field->id) ?>
-          @if($field_child)
-            @foreach($field_child as $item)
-              <option class="field_child" value="{{$item->id}}" value="{{$item->id}}"  > {{$item->name}} </option>
-            @endforeach
+          @else
+              <option class="field_child" value="{{$field->id}}" {{ ( isset(Request()->field_search) && in_array($field->id,(Request()->field_search)) )?'selected':'' }} > {{$field->name}} </option>
 
           @endif
         @endforeach

@@ -9,10 +9,6 @@ class Job extends Model
 {
     protected $table = 'jobs';
 
-    public static function getListField()
-    {
-    	return DB::table('job_category')->get();
-    }
 
     public static function getFieldParent($id)
     {
@@ -81,7 +77,7 @@ class Job extends Model
     }
 
     public static function SelectSalaryLevel($i,$salary_level,$query){
-    	if($i==0){
+    	if($i==0){  // 0 -> where , 1-> orWhere
 			if($salary_level[$i]==1){
 				$query->where('salary_to','<=',500);
 			}
@@ -133,3 +129,5 @@ class Job extends Model
         });
     }
 }
+
+

@@ -39,7 +39,6 @@ $(document).ready(function(){
 
 	$(".laguageLevel").select2({
 	    placeholder: "Trình độ tiếng nhật",
-	    maximumSelectionLength: 3,
 	    closeOnSelect: false
 	});
   
