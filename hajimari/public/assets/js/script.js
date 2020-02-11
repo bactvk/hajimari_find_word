@@ -1,12 +1,5 @@
 $(document).ready(function(){
-	
-	$('input.place_work_search').click(function(){
-
-		if($('input.place_work_search').siblings().hasClass("show")){
-			$('input.place_work_search').siblings().removeClass("show");
-		}else $(this).siblings().addClass("show");	
-
-	})	
+		
 	// select2
 	$(".workplace").select2({
 	    placeholder: "Địa điểm làm việc",
@@ -18,7 +11,7 @@ $(document).ready(function(){
 	    placeholder: "Lĩnh vực",
 	    maximumSelectionLength: 3,
 	    closeOnSelect: false,
-		    //style field parent
+		    //style field parent,child
 		templateResult: function (data) {    
 		
 		    if (!data.element) {

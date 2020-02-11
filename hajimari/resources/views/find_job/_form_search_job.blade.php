@@ -14,7 +14,7 @@
         <option></option>
         @foreach($listWorkplace as $city)
           
-            <option value="{{$city->id}}" {{ ( isset(Request()->workplace) && in_array($city->id,(Request()->workplace)) )?'selected':'' }} > {{$city->name}} </option>
+            <option value="{{$city->id}}" {{ in_array($city->id, $inputs['workplace'] ) ? 'selected':'' }} > {{$city->name}} </option>
          
         @endforeach
     </select>
@@ -31,10 +31,10 @@
 
         @foreach($listField as $field)
           @if($field->parent_id == 0)
-          <option class="field_parent" value="{{$field->id}}" {{ ( isset(Request()->field_search) && in_array($field->id,(Request()->field_search)) )?'selected':'' }}  > {{$field->name}} </option>
+          <option class="field_parent" value="{{$field->id}}" {{ in_array($field->id, $inputs['field_search'])?'selected':'' }}  > {{$field->name}} </option>
 
           @else
-              <option class="field_child" value="{{$field->id}}" {{ ( isset(Request()->field_search) && in_array($field->id,(Request()->field_search)) )?'selected':'' }} > {{$field->name}} </option>
+              <option class="field_child" value="{{$field->id}}" {{ in_array($field->id, $inputs['field_search'])?'selected':'' }} > {{$field->name}} </option>
 
           @endif
         @endforeach
@@ -48,7 +48,7 @@
         <option></option>
         @foreach($salaryLevel as $i => $value)
           
-            <option value="{{$i}}" {{ ( isset(Request()->salaryLevel) && in_array($i,(Request()->salaryLevel)) )?'selected':'' }} >
+            <option value="{{$i}}" {{ in_array($i, $inputs['salaryLevel']) ?'selected':'' }} >
                 {{$value}}
                 
             </option>
@@ -64,7 +64,7 @@
         <option></option>
         @foreach($listLanguage as $lang)
           
-            <option {{ ( isset(Request()->laguageLevel) && in_array($lang,(Request()->laguageLevel)) )?'selected':'' }} value="{{$lang}}" > {{"N".$lang}} </option>
+            <option {{ in_array($lang,  $inputs['laguageLevel']) ?'selected':'' }} value="{{$lang}}" > {{"N".$lang}} </option>
          
         @endforeach
     </select>
